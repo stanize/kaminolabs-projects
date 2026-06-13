@@ -207,8 +207,8 @@ td {
 }
 
 .row-action-btn {
-  font-size: 12px;
-  padding: 5px 10px;
+  font-size: 17px;
+  padding: 4px 7px;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--surface);
@@ -227,6 +227,14 @@ td {
 
 .row-action-btn.danger:hover {
   border-color: var(--stale-text);
+}
+
+.row-action-btn.icon-age {
+  color: var(--fresh-text);
+}
+
+.row-action-btn.icon-age:hover {
+  border-color: var(--fresh-text);
 }
 
 .action-cell {

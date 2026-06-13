@@ -10,6 +10,7 @@ interface ProjectRowProps {
   onFieldSave: (id: string, field: 'last_summary' | 'next_step' | 'hours_spent', value: string) => void;
   onToggleStatus: (id: string, newStatus: ProjectStatus) => void;
   onDelete: (id: string) => void;
+  onAge: (id: string) => void;
 }
 
 export default function ProjectRow({
@@ -17,6 +18,7 @@ export default function ProjectRow({
   onFieldSave,
   onToggleStatus,
   onDelete,
+  onAge,
 }: ProjectRowProps) {
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const band = stalenessBand(project.last_worked_date);
@@ -66,22 +68,32 @@ export default function ProjectRow({
             <button
               className="row-action-btn"
               onClick={() => onToggleStatus(project.id, 'backburner')}
+              aria-label="Move to backburner"
             >
-              Backburner
+              <i className="ti ti-zzz" />
             </button>
           ) : (
             <button
               className="row-action-btn"
               onClick={() => onToggleStatus(project.id, 'active')}
+              aria-label="Activate"
             >
-              Activate
+              <i className="ti ti-flame" />
             </button>
           )}
           <button
             className="row-action-btn danger"
             onClick={handleDeleteClick}
+            aria-label={confirmingDelete ? 'Confirm delete' : 'Delete project'}
           >
-            {confirmingDelete ? 'Confirm?' : 'Delete'}
+            <i className={confirmingDelete ? 'ti ti-trash-x' : 'ti ti-trash'} />
+          </button>
+          <button
+            className="row-action-btn icon-age"
+            onClick={() => onAge(project.id)}
+            aria-label="Age this project"
+          >
+            <i className="ti ti-arrow-up" />
           </button>
         </div>
       </td>

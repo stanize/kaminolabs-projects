@@ -108,6 +108,30 @@ export default function Tracker() {
     }
   }
 
+  async function handleAgeProject(id: string) {
+    const project = projects.find((p) => p.id === id);
+    if (!project) return;
+
+    const [y, m, d] = project.last_worked_date.split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    date.setDate(date.getDate() - 1);
+    const newDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
+    setProjects((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, last_worked_date: newDate } : p))
+    );
+
+    const { error } = await supabase
+      .from('project_tracker')
+      .update({ last_worked_date: newDate })
+      .eq('id', id);
+
+    if (error) {
+      setError(error.message);
+      await fetchProjects();
+    }
+  }
+
   async function handleCreate(name: string) {
     const today = todayDateString();
     const newProject = {
@@ -189,6 +213,7 @@ export default function Tracker() {
                     onFieldSave={handleFieldSave}
                     onToggleStatus={handleToggleStatus}
                     onDelete={handleDelete}
+                    onAge={handleAgeProject}
                   />
                 ))}
                 {visibleProjects.length === 0 && (
