@@ -70,7 +70,11 @@ export default function ProjectRow({
               onClick={() => onToggleStatus(project.id, 'backburner')}
               aria-label="Move to backburner"
             >
-              <i className="ti ti-zzz" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M17 4h3l-3 5h3" />
+                <path d="M10 4h4l-4 5h4" />
+                <path d="M4 12h4l-4 5h4" />
+              </svg>
             </button>
           ) : (
             <button
@@ -78,7 +82,9 @@ export default function ProjectRow({
               onClick={() => onToggleStatus(project.id, 'active')}
               aria-label="Activate"
             >
-              <i className="ti ti-flame" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 12c2 -2.5 0 -5.5 -1.5 -6.5c0.5 2 -0.5 4 -2 5.5c-1.5 1.5 -2.5 3.5 -2.5 5.5a6 6 0 1 0 12 0c0 -1.5 -0.5 -3 -1.5 -4.5c-1 1.5 -2.5 2.5 -4.5 0z" />
+              </svg>
             </button>
           )}
           <button
@@ -86,14 +92,24 @@ export default function ProjectRow({
             onClick={handleDeleteClick}
             aria-label={confirmingDelete ? 'Confirm delete' : 'Delete project'}
           >
-            <i className={confirmingDelete ? 'ti ti-trash-x' : 'ti ti-trash'} />
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M4 7h16" />
+              <path d="M10 11v6" />
+              <path d="M14 11v6" />
+              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+              <path d="M9 7v-2a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v2" />
+            </svg>
           </button>
           <button
             className="row-action-btn icon-age"
             onClick={() => onAge(project.id)}
             aria-label="Age this project"
           >
-            <i className="ti ti-arrow-up" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M12 5l0 14" />
+              <path d="M18 11l-6 -6" />
+              <path d="M6 11l6 -6" />
+            </svg>
           </button>
         </div>
       </td>
