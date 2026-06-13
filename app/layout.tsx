@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import './globals.css';
 
-export const metadata: Metadata = {
-  title: "App",
-  description: "Built with kaminolabs template",
+export const metadata = {
+  title: 'Project tracker',
+  description: 'Daily rotation tracker for personal projects',
 };
 
 export default function RootLayout({

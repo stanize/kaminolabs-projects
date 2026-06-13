@@ -1,0 +1,265 @@
+:root {
+  --bg: #faf9f6;
+  --surface: #ffffff;
+  --border: #e3e0d8;
+  --text: #2c2a26;
+  --text-muted: #8a8678;
+  --accent: #3c3429;
+
+  --fresh-bg: #e9f2e6;
+  --fresh-text: #3f6b3a;
+  --aging-bg: #fbf0d9;
+  --aging-text: #8a5d12;
+  --stale-bg: #f7e3df;
+  --stale-text: #a13f2d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px 80px;
+}
+
+.page-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.page-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.page-header .subtitle {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+td {
+  padding: 10px 12px;
+  vertical-align: top;
+}
+
+.col-name {
+  width: 17%;
+  font-weight: 500;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.col-badge {
+  width: 10%;
+  white-space: nowrap;
+}
+
+.col-summary,
+.col-next {
+  width: 28%;
+}
+
+.col-hours {
+  width: 7%;
+}
+
+.col-action {
+  width: 10%;
+  white-space: nowrap;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge.fresh {
+  background: var(--fresh-bg);
+  color: var(--fresh-text);
+}
+
+.badge.aging {
+  background: var(--aging-bg);
+  color: var(--aging-text);
+}
+
+.badge.stale {
+  background: var(--stale-bg);
+  color: var(--stale-text);
+}
+
+.cell-input {
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+  padding: 6px 8px;
+  border-radius: 6px;
+  resize: none;
+  line-height: 1.4;
+}
+
+.cell-input:hover {
+  border-color: var(--border);
+}
+
+.cell-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.cell-input.name-input {
+  font-weight: 500;
+}
+
+.hours-input {
+  width: 100%;
+  text-align: left;
+}
+
+.row-action-btn {
+  font-size: 12px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.row-action-btn:hover {
+  border-color: var(--accent);
+}
+
+.row-action-btn.danger {
+  color: var(--stale-text);
+}
+
+.row-action-btn.danger:hover {
+  border-color: var(--stale-text);
+}
+
+.action-cell {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.empty-state {
+  padding: 32px 12px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.saved-flash {
+  display: inline-block;
+  font-size: 11px;
+  color: var(--fresh-text);
+  margin-left: 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.saved-flash.show {
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    min-width: 760px;
+  }
+}
