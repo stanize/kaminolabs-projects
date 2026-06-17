@@ -64,7 +64,7 @@ export default function ProjectRow({
       </td>
       <td className="col-action">
         <div className="action-cell">
-          {project.status === 'active' ? (
+          {project.status !== 'backburner' ? (
             <button
               className="row-action-btn"
               onClick={() => onToggleStatus(project.id, 'backburner')}
@@ -81,6 +81,7 @@ export default function ProjectRow({
               className="row-action-btn"
               onClick={() => onToggleStatus(project.id, 'active')}
               aria-label="Activate"
+              style={{ color: '#e8521a' }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 12c2 -2.5 0 -5.5 -1.5 -6.5c0.5 2 -0.5 4 -2 5.5c-1.5 1.5 -2.5 3.5 -2.5 5.5a6 6 0 1 0 12 0c0 -1.5 -0.5 -3 -1.5 -4.5c-1 1.5 -2.5 2.5 -4.5 0z" />
