@@ -64,7 +64,7 @@ export default function ProjectRow({
       </td>
       <td className="col-action">
         <div className="action-cell">
-          {project.status !== 'backburner' ? (
+          {project.status !== 'backburner' && (
             <button
               className="row-action-btn"
               onClick={() => onToggleStatus(project.id, 'backburner')}
@@ -76,7 +76,8 @@ export default function ProjectRow({
                 <path d="M4 12h4l-4 5h4" />
               </svg>
             </button>
-          ) : (
+          )}
+          {project.status !== 'active' && (
             <button
               className="row-action-btn"
               onClick={() => onToggleStatus(project.id, 'active')}
