@@ -12,7 +12,7 @@ export default function Tracker() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<Tab>('active');
+  const [activeTab, setActiveTab] = useState<Tab>('assets');
 
   useEffect(() => {
     fetchProjects();
@@ -165,6 +165,12 @@ export default function Tracker() {
       </div>
 
       <div className="tabs">
+        <button
+          className={`tab ${activeTab === 'assets' ? 'active' : ''}`}
+          onClick={() => setActiveTab('assets')}
+        >
+          Assets
+        </button>
         <button
           className={`tab ${activeTab === 'active' ? 'active' : ''}`}
           onClick={() => setActiveTab('active')}

@@ -5,7 +5,7 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export type ProjectStatus = 'active' | 'backburner';
+export type ProjectStatus = 'active' | 'backburner' | 'assets';
 
 export interface Project {
   id: string;

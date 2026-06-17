@@ -87,6 +87,15 @@ export default function ProjectRow({
               </svg>
             </button>
           )}
+          {project.status !== 'assets' && (
+            <button
+              className="row-action-btn assets-btn"
+              onClick={() => onToggleStatus(project.id, 'assets')}
+              aria-label="Move to assets"
+            >
+              <span style={{ color: '#2e7d32', fontWeight: 700, fontSize: '15px' }}>$</span>
+            </button>
+          )}
           <button
             className="row-action-btn danger"
             onClick={handleDeleteClick}

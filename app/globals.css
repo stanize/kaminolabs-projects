@@ -146,7 +146,7 @@ td {
 }
 
 .col-action {
-  width: 10%;
+  width: 14%;
   white-space: nowrap;
 }
 
@@ -237,10 +237,15 @@ td {
   border-color: var(--fresh-text);
 }
 
+.row-action-btn.assets-btn:hover {
+  border-color: #2e7d32;
+}
+
 .action-cell {
   display: flex;
   gap: 6px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .empty-state {
